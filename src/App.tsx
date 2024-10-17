@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Carousel from "./Carousel";
+import { LandingPage } from "./LandingPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
+
+interface Option {
+  icon: string;
+  label: string;
 }
 
+interface Slide {
+  title: string;
+  options: Option[];
+}
+
+const slides: Slide[] = [
+  {
+    title: "How was your week overall?",
+    options: [
+      { icon: "one", label: "Good 1" },
+      { icon: "one", label: "Good 1" },
+      { icon: "one", label: "Good 1" },
+    ],
+  },
+  {
+    title: "Your Favt Color",
+    options: [
+      { icon: "🔴", label: "Red" },
+      { icon: "🟢", label: "Green" },
+      { icon: "🔵", label: "Blue" },
+    ],
+  },
+  {
+    title: "Your favt pet?",
+    options: [
+      { icon: "🐱", label: "Cat" },
+      { icon: "🐶", label: "Dog" },
+      { icon: "🐰", label: "Rabbit" },
+    ],
+  },
+];
+
+const App: React.FC = () => {
+  const userName = useSelector((state: RootState) => state.name.value);
+
+  return (
+    <div className="app">{!userName ? <LandingPage /> : <Carousel />}</div>
+  );
+};
 export default App;

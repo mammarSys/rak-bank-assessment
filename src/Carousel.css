@@ -1,0 +1,78 @@
+.carousel-container {
+  display: flex;
+  align-items: center;
+  background-color: red;
+  height: 100vh;
+  width: 100vw;
+}
+
+.leftBlock {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0% 2%;
+  gap: 10%;
+}
+
+.dots {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 10px;
+}
+
+.dot {
+  color: white;
+  cursor: pointer;
+}
+
+.selected-dot {
+  background-color: azure;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slide-title {
+  color: white;
+  font-size: 36px;
+  text-wrap: wrap;
+  width: 300px;
+}
+
+.carousel-options {
+  display: flex;
+  gap: 10%;
+  background-color: white;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 2;
+}
+
+.carousel-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  cursor: pointer;
+  font-size: 36px;
+}
+
+.carousel-option .label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  visibility: hidden;
+  transition: visibility 0.1s step-end;
+}
+
+.carousel-option:hover .label {
+  visibility: visible;
+}
+
+.carousel-option:hover {
+  background-color: #efefee;
+  border-radius: 20%;
+}
